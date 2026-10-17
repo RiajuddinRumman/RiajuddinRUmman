@@ -135,7 +135,9 @@ Consistency beats intensity. I solve in **C++** and keep the practice on LeetCod
 
 Happy to compare notes on NestJS architecture, database constraints as a correctness tool, interview prep, or system design tradeoffs.
 
-[![Email](https://img.shields.io/badge/Email-mdriajuddinrumman@gmail.com-0A66C2?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mdriajuddinrumman@gmail.com)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/md-riajuddin-rumman-50550b28a/)
-[![LeetCode](https://img.shields.io/badge/LeetCode-Daily%20Solver-FF9D05?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/u/riajuddinrumman/)
-[![GitHub](https://img.shields.io/badge/GitHub-RiajuddinRumman-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RiajuddinRumman)
+[![Email](https://img.shields.io/badge/Email-0A66C2?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mdriajuddinrumman@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/md-riajuddin-rumman-50550b28a/)
+[![LeetCode](https://img.shields.io/badge/LeetCode-FF9D05?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/u/riajuddinrumman/)
+[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/snowmassX/)
+
+Direct: **[mdriajuddinrumman@gmail.com](mailto:mdriajuddinrumman@gmail.com)**

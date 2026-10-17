@@ -1,12 +1,13 @@
 # MD. Riajuddin Rumman
 
-> Computer Science undergraduate and backend-focused **Node.js** developer who likes the hard part of an API more than the demo — concurrency invariants, auth that fails safely, and tests that prove it. NestJS and TypeScript today; React/Next.js, DevOps, and AI-assisted features next.
+> Full-stack **Node.js** developer — Next.js and React on the client, Express and NestJS on the server — who likes the hard part of an API more than the demo: concurrency invariants, auth that fails safely, realtime channels, and tests that prove it. DevOps practice is next on the list, AI-assisted features after that.
 
-- Writing **NestJS services with Prisma + Postgres**, validated DTOs, and a global `ValidationPipe`
+- Building **NestJS services** on Postgres, with Prisma and TypeORM, Redis for cache and queues
+- Serving the same domain over **REST, WebSockets, and GraphQL** — REST documented through Swagger
 - Enforcing correctness **in the database**, not only in application code
 - Solving **2–3 LeetCode problems daily** — hashing and arrays first, then graphs and DP
-- Reading **system design**: idempotency, locking, exclusion constraints, and where caching actually pays
-- Keeping setup reproducible — one lockfile, migrations in version control, and lint, typecheck, and tests as gates
+- Reading **system design**: idempotency, locking, exclusion constraints, where caching actually pays
+- Learning the delivery side in public — **Docker, AWS, CI/CD**
 
 <br>
 
@@ -21,45 +22,64 @@ A service-booking backend where customers request appointments with local provid
 [![Vitest](https://img.shields.io/badge/Tests-154%20passing-00B87B?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev)
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com)
 
-**What it exercises**
-
 - **Overlap prevention that survives races** — slot conflicts are checked in a pure `overlap` module *and* locked down by hand-written constraints in the migration SQL, so a bad request loses even under concurrent writes
 - **Auth without shortcuts** — `scrypt` password hashing, JWT sign/verify that rejects malformed claims, role guards returning 401 vs 403 deliberately, and timing equalization on login
 - **Layering** — `auth`, `bookings`, and `prisma` as Nest modules with DTOs separated, `current-user` data read only off the request
 - **A real test pyramid** — 113 unit tests with no database required, plus 41 end-to-end tests against Postgres that create their own schema
-- **One lockfile, one command** — `npm ci` → `prisma generate` → `docker compose up -d` (or any reachable Postgres 14+), then `prisma migrate dev` — reproducible on a clean machine
+- **Reproducible setup** — `npm ci` → `prisma generate` → `docker compose up -d` (or any reachable Postgres 14+), then `prisma migrate dev`
 
 Repo: **[RiajuddinRumman/ShebaBook](https://github.com/RiajuddinRumman/ShebaBook)**
 
 <br>
 
-## Stack
+## Also shipping — NestJS security & realtime foundation
 
-**Backend — where I work daily**
+A framework layer I keep refining alongside the booking API, wiring the parts every production service eventually needs:
 
-<img src="https://skillicons.dev/icons?i=nodejs,nestjs,express,ts,prisma,postgres&theme=dark" alt="Backend stack" />
+- **Realtime** — `@nestjs/websockets` on `@nestjs/platform-socket.io`, so Socket.IO gateways sit inside the same DI container as the REST controllers
+- **Auth surface** — Passport with JWT strategy, JWKS key verification, Argon2 hashing, and CSRF protection on top of `helmet`
+- **Throughput safety** — `@nestjs/throttler` backed by Redis for rate limiting, and `@nestjs/bull` for background jobs that must not block a request
+- **Persistence both ways** — TypeORM with scripted migrations and seeders, and Zod plus `class-validator` for request contracts
+- **Documented by default** — `@nestjs/swagger` generating the OpenAPI spec from the decorators, plus file uploads via Multer and delivery via Nodemailer
 
-**Frontend — actively building toward**
-
-<img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,js,html,css&theme=dark" alt="Frontend stack" />
-
-**Tooling & delivery**
-
-<img src="https://skillicons.dev/icons?i=git,vitest,npm,vscode&theme=dark" alt="Tooling and delivery" />
+Repo: **[Advance-Webtech-Fall-26-27](https://github.com/RiajuddinRumman/Advance-Webtech-Fall-26-27)**
 
 <br>
 
-## Learning roadmap
+## Stack
+
+**Frontend**
+
+<img src="https://skillicons.dev/icons?i=react,nextjs,tailwind,js,html,css&theme=dark" alt="Frontend stack" />
+
+**Backend & data**
+
+<img src="https://skillicons.dev/icons?i=nodejs,express,nestjs,ts,prisma,postgres,redis&theme=dark" alt="Backend and data stack" />
+
+**API surfaces**
+
+![REST](https://img.shields.io/badge/REST%20_%20Swagger-FFA42C?style=flat-square&logo=nestjs&logoColor=white)
+![WebSocket](https://img.shields.io/badge/WebSocket%20_%20Socket.IO-01C9AA?style=flat-square)
+![GraphQL](https://img.shields.io/badge/GraphQL-E10098?style=flat-square)
+![Queues](https://img.shields.io/badge/Queues%20_%20Bull%20%2B%20Redis-CB3837?style=flat-square)
+
+**Delivery — learning in public**
+
+<img src="https://skillicons.dev/icons?i=git,docker,aws,githubactions&theme=dark" alt="DevOps tooling" />
+
+<br>
+
+## Where I stand
 
 <table>
   <tr>
     <td width="50%">
 
-###### Solid now
+###### Built and verifiable
 
-- **REST API design** — resource modeling, DTO validation, error taxonomy in NestJS
-- **Data integrity** — Prisma schema as single source of truth, versioned migrations
-- **Testing strategy** — pure units beside framework-coupled e2e; supertest over HTTP
+- **NestJS architecture** — modules, guards, interceptors, DTO validation, layered error taxonomy
+- **Data integrity** — Prisma and TypeORM schemas as source of truth, versioned migrations, seeders
+- **Testing strategy** — pure units beside framework-coupled e2e; supertest over HTTP; coverage scripts
 - **CS fundamentals** — OOP coursework across Python, Java, and C#
 
     </td>
@@ -67,9 +87,9 @@ Repo: **[RiajuddinRumman/ShebaBook](https://github.com/RiajuddinRumman/ShebaBook
 
 ###### Deliberately next
 
-- **React & Next.js** — server components, streaming, and ISR tradeoffs
-- **Containers** — running the Compose stack the repo documents, and writing images for it
-- **CI/CD** — pipeline checks on every pull request, then gated promotion to production
+- **Public Next.js apps** — the client work is real; the repositories are what I owe it
+- **Containers** — running the Compose stack the repos document, then images of my own
+- **CI/CD** — checks on every pull request, then gated promotion to production
 - **AWS** — moving containerized services onto managed compute and storage
 - **AI integration** — embeddings, vector search, and streamed LLM responses inside real apps
 
@@ -111,10 +131,11 @@ Consistency beats intensity. I solve in **C++** and keep the practice on LeetCod
 
 ## Let's connect
 
-**Open to backend and API engineering internships** — ShebaBook above is the work I'd point at first.
+**Open to full-stack and backend engineering internships** — ShebaBook above is the work I'd point at first.
 
 Happy to compare notes on NestJS architecture, database constraints as a correctness tool, interview prep, or system design tradeoffs.
 
 [![Email](https://img.shields.io/badge/Email-mdriajuddinrumman@gmail.com-0A66C2?style=for-the-badge&logo=gmail&logoColor=white)](mailto:mdriajuddinrumman@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/md-riajuddin-rumman-50550b28a/)
+[![LeetCode](https://img.shields.io/badge/LeetCode-Daily%20Solver-FF9D05?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/u/riajuddinrumman/)
 [![GitHub](https://img.shields.io/badge/GitHub-RiajuddinRumman-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/RiajuddinRumman)
